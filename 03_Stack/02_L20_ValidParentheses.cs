@@ -15,12 +15,13 @@ public class Solution {
         // string 也可以使用 foreach 遍历
         foreach(char c in s )
         {
-            // ( [ { 压栈
-            // ) ] } 出栈
+            // ( [ { 时 -> 压栈    
             if(!pairs.ContainsKey(c))
             {
                 stack.Push(c);
             } 
+            // ) ] } 时 -> 出栈并与 ) ] } 比较, 不相等时返回false
+            // ) ] } 时 -> 出栈
                         //else if(注意两个条件的顺序)
             else if (stack.Count == 0 || stack.Pop() != pairs[c])
             {
