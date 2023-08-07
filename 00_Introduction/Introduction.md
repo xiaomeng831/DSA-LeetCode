@@ -11,6 +11,31 @@ int constant(int n) {
     return count;
 }
 ```
+**O(n)**
+```csharp
+/* 函数操作次数是由数组 nums 的长度决定,即为 n 次 */
+int arrayTraversal(int[] nums) {
+    int count = 0;
+    foreach (int num in nums) {
+        count++;
+    }
+    return count;
+} 
+```
+**O(n^2)**
+```csharp
+/* 平方阶 */
+int quadratic(int n) {
+    int count = 0;
+    // 循环次数与数组长度成平方关系
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            count++;
+        }
+    }
+    return count;
+}
+```
 ### 2.空间复杂度
 ## 2.Data Structure
 ### 1.逻辑结构
