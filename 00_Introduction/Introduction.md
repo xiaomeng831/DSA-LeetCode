@@ -1,5 +1,16 @@
-## 1.Complexity
-### 1.时间复杂度
+## Complexity
+### Time Complexity
+**O(1)**
+```csharp
+/* 不论 n 是几, 该函数操作次数永远是 100000次 */
+int constant(int n) {
+    int count = 0;
+    int size = 100000;
+    for (int i = 0; i < size; i++)
+        count++;
+    return count;
+}
+```
 ### 2.空间复杂度
 ## 2.Data Structure
 ### 1.逻辑结构
