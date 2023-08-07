@@ -12,9 +12,9 @@ int constant(int n) {
     return count;
 }
 ```
-**O(logn)** - 每轮缩减, 常见于二分查找和分治算法
+**O(logn)** - 每轮缩减, 常见于二分查找, 分治算法, 递归函数
 ```csharp
-/* 每轮操作次数缩减一般, 即以2为底*/
+/* 每轮操作次数缩减一半, 即以2为底*/
 int logarithmic(float n) {
     int count = 0;
     while (n > 1) {
@@ -22,6 +22,12 @@ int logarithmic(float n) {
         count++;
     }
     return count;
+}
+
+/* 对数阶（递归实现） */
+int logRecur(float n) {
+    if (n <= 1) return 0;
+    return logRecur(n / 2) + 1;
 }
 ```
 **O(n)** - 与输入数据 n 成线性关系, 常出现在单层循环中
@@ -35,7 +41,9 @@ int arrayTraversal(int[] nums) {
     return count;
 } 
 ```
-**O(n logn)** - 常出现于嵌套循环中, 一层是O(logn), 一层是O(n); 常见于 快速排序、归并排序、堆排序等
+**O(n logn)** 
+- 常出现于嵌套循环中, 一层是O(logn), 一层是O(n)
+- 主流排序算法通常是 O(n logn), 例如快速排序、归并排序、堆排序等
 ```csharp
 int linearLogRecur(float n) {
     if (n <= 1) return 1;
@@ -47,11 +55,12 @@ int linearLogRecur(float n) {
     return count;
 }
 ```
-**O(n^2)** - 常出现在嵌套循环中，外层循环和内层循环都为 O(n)
+**O(n^2)** 
+- 常出现在嵌套循环中，外层循环和内层循环都为 O(n)
+- 冒泡排序外层 (n-1), 内层平均 (n/2), 即 O(n^2)
 ```csharp
 int quadratic(int n) {
     int count = 0;
-    // 循环次数与数组长度成平方关系
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             count++;
@@ -60,7 +69,9 @@ int quadratic(int n) {
     return count;
 }
 ```
-**O(2^n)** - 若一个问题使用「暴力枚举」求解的时间复杂度为 O(2^n), 那么通常需要使用「动态规划」或「贪心算法」等方法来解决; 常出现于递归函数 
+**O(2^n)** 
+- 若一个问题使用「暴力枚举」求解的时间复杂度为 O(2^n), 那么通常需要使用「动态规划」或「贪心算法」等方法来解决
+- 常出现于递归函数 
 ```csharp
 int exponential(int n) {
     int count = 0, bas = 1;
@@ -73,6 +84,12 @@ int exponential(int n) {
     }
     // count = 1 + 2 + 4 + 8 + .. + 2^(n-1) = 2^n - 1
     return count;
+}
+
+/* 指数阶（递归实现） */
+int expRecur(int n) {
+    if (n == 1) return 1;
+    return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 ```
 **O(n!)** - 阶乘通常使用递归实现。
@@ -87,7 +104,6 @@ int factorialRecur(int n) {
     }
     return count;
 }
-
 ```
 ### 2.空间复杂度
 ## 2.Data Structure
